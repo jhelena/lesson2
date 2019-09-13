@@ -6,10 +6,7 @@ answ={
 def ask_user(answer_dictionary):
     while True:
         user_say = input('Ваш вопрос: ')
-
-        for key in answer_dictionary.keys():
-            if user_say == key:
-                print(answer_dictionary[key]) 
+        print(answer_dictionary.get(user_say, 'Я не знаю ответа'))
 
 ask_user(answ)
   

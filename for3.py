@@ -11,8 +11,7 @@ school_scores_sum = 0
 school_scores_quant = 0
 for score_avg in all_scores:
     class_scores_sum = 0
-    for score in score_avg['scores']:
-	    class_scores_sum += score
+    class_scores_sum = sum(score_avg['scores'])
     print(class_scores_sum)
     class_scores_avg = class_scores_sum / len(score_avg["scores"])
     print(f"Средняя оценка по классу {class_scores_avg}")

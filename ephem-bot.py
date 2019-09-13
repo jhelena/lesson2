@@ -31,24 +31,27 @@ def talk_to_me(bot, update):
 def planet(bot, update):
     user_text = update.message.text
     split_text = user_text.split()
-    name_planet = split_text[1]
-    #print(name_planet)
-    name_planet = name_planet.capitalize()
-    print(name_planet)
-    if name_planet in planets:
-        now = datetime.datetime.now()
-        #print(now)
-        now=str(now)
-        split_now=now.split()
-        #print(split_now)
-        now=str(split_now[0])
-        print(now)
-        get_const= getattr(ephem,name_planet)
-        planet = get_const(now)
-        const = ephem.constellation(planet)
-        print(const)
+    if len(split_text) == 2:
+        name_planet = split_text[1]
+        #print(name_planet)
+        name_planet = name_planet.capitalize()
+        print(name_planet)
+        if name_planet in planets:
+            now = datetime.datetime.now()
+            #print(now)
+            now=str(now)
+            split_now=now.split()
+            #print(split_now)
+            now=str(split_now[0])
+            print(now)
+            get_const= getattr(ephem,name_planet)
+            planet = get_const(now)
+            const = ephem.constellation(planet)
+            print(const)
+        else:
+            const='Нет такой планеты!'
     else:
-        const='Нет такой планеты!'
+        const='Неправильно набрана команда!'
     update.message.reply_text(const)
 
 main()
