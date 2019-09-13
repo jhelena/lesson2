@@ -25,5 +25,5 @@ print(discounted(100, 10.5))
 print(discounted(100, 'price','price'))
 print(discounted('100', 'price'))
 # Почему boolen-аргументы не попадают в exception по TypeError?
-#print(discounted(True, False))
+print(discounted(True, False))
 print(discounted(10, 5, 1000))
